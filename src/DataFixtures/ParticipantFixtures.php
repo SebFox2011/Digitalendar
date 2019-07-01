@@ -3,10 +3,11 @@
 namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Participant;
 
-class ParticipantFixtures extends Fixture
+class ParticipantFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -19,7 +20,7 @@ class ParticipantFixtures extends Fixture
 
         $participant2 = new Participant();
         $participant2-> setCreatedAt(new \DateTime('2013-01-01T10:03:01'));
-        $participant2->setEvent($this->getReference());
+        $participant2->setEvent($this->getReference("EventMeeting"));
         $participant2->setUser($this->getReference("user2"));
 
         $manager->persist($participant2);

@@ -62,7 +62,7 @@ class Event
     /**
      * @ORM\Column(type="boolean")
      */
-    private $is_valid;
+    private $is_valid = False;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Langage", inversedBy="events")
