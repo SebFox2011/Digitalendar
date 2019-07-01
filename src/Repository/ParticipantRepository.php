@@ -20,7 +20,7 @@ class ParticipantRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Participant[] Returns an array of Participant objects
+    //  * @return ParticipantFixtures[] Returns an array of ParticipantFixtures objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ParticipantRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Participant
+    public function findOneBySomeField($value): ?ParticipantFixtures
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

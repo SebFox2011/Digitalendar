@@ -20,7 +20,7 @@ class EventRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Event[] Returns an array of Event objects
+    //  * @return EventFixtures[] Returns an array of EventFixtures objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class EventRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Event
+    public function findOneBySomeField($value): ?EventFixtures
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')
