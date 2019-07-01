@@ -67,21 +67,21 @@ class Event
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Langage", inversedBy="events")
      */
-    private $languages;
+    private $langages;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="events")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\participant", mappedBy="event")
+     * @ORM\OneToMany(targetEntity="App\Entity\Participant", mappedBy="event")
      */
     private $participants;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\city", inversedBy="events")
+     * @ORM\ManyToOne(targetEntity="App\Entity\City", inversedBy="events")
      * @ORM\JoinColumn(nullable=false)
      */
     private $city;
@@ -244,7 +244,7 @@ class Event
     }
 
     /**
-     * @return Collection|participant[]
+     * @return Collection|Participant[]
      */
     public function getParticipants(): Collection
     {

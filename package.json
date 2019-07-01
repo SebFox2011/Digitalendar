@@ -13,5 +13,13 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "jquery": "^3.4.1",
+        "popper.js": "^1.15.0",
+        "select2": "^4.0.7",
+        "tinymce": "^5.0.9",
+        "font-awesome": "^4.7.0"
     }
 }

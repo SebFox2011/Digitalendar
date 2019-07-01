@@ -24,7 +24,7 @@ class City
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="cities")
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="city")
      */
     private $events;
 

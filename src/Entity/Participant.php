@@ -28,7 +28,7 @@ class Participant
     private $event;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="participants")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="participants")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
