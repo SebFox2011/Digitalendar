@@ -1,10 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Mon compte utilisateur{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
-
+    <main role="main">
+        <div class="py-5 bg-light">
+            <div class="container">
+                <h1>Mon compte</h1>
+                <hr>
+                <ul>
+                    <li>Pseudo : {{ user.username }}</li>
+                    <li>Email : {{ user.email }}</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Modifier</a>
+                <div id="events" class="album py-5">
+                    <h2>Mes événements</h2>
+                    <div class="row">
+                        {% for users in user %}
+                            {{ user.events }}
+                        {% endfor %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="uploads/logo-wwf-2019.png" alt="West Web Festival">
+                                <div class="card-body">
+                                    <h3 class="card-text">West Web Festival</h3>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="event.html" class="btn btn-sm btn-outline-secondary">Voir</a>
+                                            <a href="#" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                        </div>
+                                        <small class="text-muted">Carhaix | 18-19 juillet 2019</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <table class="table">
         <tbody>
             <tr>
