@@ -9,7 +9,7 @@
             <p class="lead text-muted">Votre agenda d'événements autour du digital</p>
             <p>
                 <a href="#events" class="btn btn-primary my-2">Les prochains événements</a>
-                <a href="events.html" class="btn btn-secondary my-2">Tous les événements</a>
+                <a href="{{ path('event_index') }}" class="btn btn-secondary my-2">Tous les événements</a>
             </p>
         </div>
     </section>
@@ -22,15 +22,15 @@
             {% for event in events  %}
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="{{ event.picture }}" alt="{{ event.title }}">
+                        <img src="build/upload/{{ event.picture }}" alt="{{ event.title }}">
                         <div class="card-body">
                             <h3 class="card-text">{{ event.title }}</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{ path('event_show',{id: event.id}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+                                    <a href="{{ path('event_show',{slug: event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
                                     <a href="#" class="btn btn-sm btn-outline-secondary">Modifier</a>
                                 </div>
-                                <small class="text-muted">{{ event.city }} | {{ event.dateStart | date ('d/m/Y H:i:s') }}-{{ event.dateStart |date ('d/m/Y H:i:s' ) }}</small>
+                                <small class="text-muted">{{ event.city }} | {{ event.dateStart | date ('d') }}-{{ event.dateEnd |date ('d/m/Y' ) }}</small>
                             </div>
                         </div>
                     </div>
