@@ -52,7 +52,7 @@
 
     <a href="{{ path('event_index') }}">Retour à la liste </a>
 
-    <a href="{{ path('event_edit', {'id': event.id}) }}">Editer</a>
+    <a href="{{ path('event_edit', {'slug': event.slug}) }}">Editer</a>
 
     {{ include('event/_delete_form.html.twig') }}
 {% endblock %}

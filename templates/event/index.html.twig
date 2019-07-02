@@ -35,8 +35,8 @@
                 <td>{{ event.price }}</td>
                 <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('event_show', {'slug': event.id}) }}">Voir</a>
-                    <a href="{{ path('event_edit', {'slug': event.id}) }}">editer</a>
+                    <a href="{{ path('event_show', {'slug': event.slug}) }}">Voir</a>
+                    <a href="{{ path('event_edit', {'slug': event.slug}) }}">editer</a>
                 </td>
             </tr>
         {% else %}
