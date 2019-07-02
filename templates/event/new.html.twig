@@ -3,7 +3,73 @@
 {% block title %}Proposer un événement{% endblock %}
 
 {% block body %}
-    <h1>Proposer un événement</h1>
+
+    <main role="main">
+
+        <div class="py-5 bg-light">
+
+            <div class="container">
+
+                <h1>Proposer un événement</h1>
+
+                <form>
+                    <div class="form-group">
+                        <label for="inputTitle">Titre</label>
+                        <input type="text" class="form-control" id="inputTitle" placeholder="Titre">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPicture">Image</label>
+                        <input type="file" class="form-control" id="inputPicture">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">Ville</label>
+                        <select class="form-control" id="inputCity">
+                            <option>Rennes</option>
+                            <option>Nantes</option>
+                            <option>Paris</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="textareaDescription">Description</label>
+                        <textarea class="form-control" id="textareaDescription"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="inputDateStart">Date début</label>
+                                <input type="datetime-local" class="form-control" id="inputDateStart">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="inputDateEnd">Date fin</label>
+                                <input type="datetime-local" class="form-control" id="inputDateEnd">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputUrl">URL</label>
+                        <input type="url" class="form-control" id="inputUrl" placeholder="http://">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPrice">Prix</label>
+                        <input type="number" class="form-control" id="inputPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLanguages">Langues</label>
+                        <select class="form-control" id="inputLanguages" multiple>
+                            <option>Anglais</option>
+                            <option>Francais</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Proposer</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
 
     {{ include('event/_form.html.twig') }}
 

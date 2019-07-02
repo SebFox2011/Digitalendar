@@ -3,6 +3,55 @@
 {% block title %}Index des événements{% endblock %}
 
 {% block body %}
+
+    <main role="main">
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <h2>Evénements 2019</h2>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">2017</a>
+                            <a href="#" class="list-group-item list-group-item-action">2018</a>
+                            <a href="#" class="list-group-item list-group-item-action active">2019</a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="row">
+
+                            {% for event in events  %}
+                                <div class="col-md-6">
+                                    <div class="card mb-4 shadow-sm">
+                                        <img src="/build/upload/{{ event.picture }}" alt="{{ event.title }}">
+                                        <div class="card-body">
+                                            <h3 class="card-text">{{ event.title }}</h3>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <a href="{{ path('event_show',{slug: event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+                                                    <a href="#" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                                </div>
+                                                <small class="text-muted">{{ event.city }} - {{ event.dateStart | date ('d') }} | {{ event.dateEnd |date ('d-m-Y' ) }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
     <h1>Index des événements</h1>
 
     <table class="table">
