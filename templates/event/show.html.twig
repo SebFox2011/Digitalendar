@@ -1,9 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des événements{% endblock %}
+{% block title %}Voir l'événement{% endblock %}
 
 {% block body %}
-    <h1>Liste des événements</h1>
+    <h1>Voir l'événement</h1>
+
+    <main role="main">
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/build/upload/{{ event.picture }}" alt="{{ event.title }}l">
+                    </div>
+                    <div class="col-md-8">
+                        <h1>{{ event.getTitle }}</h1>
+                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Ville">
+                        <i class="fa fa-map-pin"></i>
+                        {{ event.city }}
+                    </span>
+                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Dates">
+                        <i class="fa fa-calendar"></i>
+                        {{ event.dateStart | date ('d') }}-{{ event.dateEnd |date ('d/m/Y' ) }}
+                    </span>
+                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Participants">
+                        <i class="fa fa-users"></i>
+                        {{ event.user }}
+                    </span>
+                        <a href="{{ event.url }}" class="badge badge-pill badge-primary" data-toggle="tooltip" data-placement="top" title="Site internet">
+                            <i class="fa fa-globe"></i>
+                            Site internet
+                        </a>
+                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Prix">
+                        <i class="fa fa-euro"></i>
+                        {{ event.price }}
+                    </span>
+
+                        <p>{{ event.description }}</p>
+
+                        <a href="#" class="btn btn-primary btn-lg">J'y vais !</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
 
     <table class="table">
         <tbody>
@@ -55,4 +99,6 @@
     <a href="{{ path('event_edit', {'slug': event.slug}) }}">Editer</a>
 
     {{ include('event/_delete_form.html.twig') }}
+
+
 {% endblock %}
