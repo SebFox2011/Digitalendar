@@ -5,11 +5,10 @@
         <title>{% block title %}Digitalendar!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-
         {% endblock %}
     </head>
     <body>
-        {% block body %}
+
             <header>
                 <div class="navbar navbar-dark bg-dark shadow-sm">
                     <div class="container d-flex justify-content-between">
@@ -20,67 +19,17 @@
                             <a class="p-2 text-white" href="events.html">Les événements</a>
                             <a class="p-2 text-white" href="add-event.html">Proposer un événement</a>
                             <a class="p-2 text-white" href="account.html">Mon compte</a>
+                            {%  if app.user %}
+                                <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            {% else %}
+                                <a href="{{ path('app_login') }}">Connexion</a>
+                            {% endif %}
                         </nav>
                     </div>
                 </div>
             </header>
+        {% block body %}
 
-            <main role="main">
-
-                <section class="jumbotron text-center">
-                    <div class="container">
-                        <h1 class="jumbotron-heading">Digitalendar</h1>
-                        <p class="lead text-muted">Votre agenda d'événements autour du digital</p>
-                        <p>
-                            <a href="#events" class="btn btn-primary my-2">Les prochains événements</a>
-                            <a href="events.html" class="btn btn-secondary my-2">Tous les événements</a>
-                        </p>
-                    </div>
-                </section>
-                <div id="events" class="album py-5 bg-light">
-                    <div class="container">
-
-                        <h2>Les prochains événements</h2>
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <div class="card mb-4 shadow-sm">
-                                    <img src="build/upload/logo-wwf-2019.png" alt="West Web Festival">
-                                    <div class="card-body">
-                                        <h3 class="card-text">West Web Festival</h3>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <a href="event.html" class="btn btn-sm btn-outline-secondary">Voir</a>
-                                                <a href="#" class="btn btn-sm btn-outline-secondary">Modifier</a>
-                                            </div>
-                                            <small class="text-muted">Carhaix | 18-19 juillet 2019</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="card mb-4 shadow-sm">
-                                    <img src="build/upload/open-source-summit.jpg" alt="Open Source Summit">
-                                    <div class="card-body">
-                                        <h3 class="card-text">Open Source Summit</h3>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <a href="event.html" class="btn btn-sm btn-outline-secondary">Voir</a>
-                                            </div>
-                                            <small class="text-muted">Paris | 10-11 décembre 2019</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-            </main>
 
         {% endblock %}
         {% block footer %}
