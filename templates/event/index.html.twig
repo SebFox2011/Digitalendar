@@ -51,6 +51,8 @@
         </div>
 
     </main>
+    {% if is_granted('ROLE_ADMIN') %}
+
 
     <h1>Index des événements</h1>
 
@@ -97,4 +99,5 @@
     </table>
 
     <a href="{{ path('event_new') }}">Créer un nouveau</a>
+    {% endif %}
 {% endblock %}
