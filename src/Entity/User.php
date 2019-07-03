@@ -41,7 +41,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="user")
      */
     private $events;
 
@@ -207,6 +207,4 @@ class User implements UserInterface
     {
         return $this->getUsername();
     }
-
-
 }

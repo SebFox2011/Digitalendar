@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Proxies\__CG__\App\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,9 @@ class UserController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
+        // Autorise les admin uniqmement à créer des articles
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -53,8 +57,11 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
+        //$events=$this->getDoctrine()->getRepository(Event::class)->findAll();
+
         return $this->render('user/show.html.twig', [
-            'user' => $user,
+            'user' => $user//,
+            //'events' => $events
         ]);
     }
 
