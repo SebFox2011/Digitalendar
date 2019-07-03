@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="album py-5 bg-light">
-                <div class="container">
+        <div class="container">
 
                     <h2>Evénements 2019</h2>
 
@@ -45,54 +45,54 @@
 
                     </div>
                 </div>
-            </div>
-    {% if is_granted('ROLE_ADMIN') %}
+    </div>
+{% if is_granted('ROLE_ADMIN') %}
 
 
-        <h1>Index des événements</h1>
+    <h1>Index des événements</h1>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Slug</th>
-                    <th>Picture</th>
-                    <th>Description</th>
-                    <th>Date_start</th>
-                    <th>Date_end</th>
-                    <th>Url</th>
-                    <th>Price</th>
-                    <th>Is_valid</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for event in events %}
-                <tr>
-                    <td>{{ event.id }}</td>
-                    <td>{{ event.title }}</td>
-                    <td>{{ event.slug }}</td>
-                    <td>{{ event.picture }}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.dateStart ? event.dateStart|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ event.dateEnd ? event.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
-                    <td>{{ event.url }}</td>
-                    <td>{{ event.price }}</td>
-                    <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
-                    <td>
-                        <a href="{{ path('event_show', {'slug': event.slug}) }}">Voir</a>
-                        <a href="{{ path('event_edit', {'slug': event.slug}) }}">editer</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="11">Pas d'enregistrements trouvés</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Picture</th>
+                <th>Description</th>
+                <th>Date_start</th>
+                <th>Date_end</th>
+                <th>Url</th>
+                <th>Price</th>
+                <th>Is_valid</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.slug }}</td>
+                <td>{{ event.picture }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.dateStart ? event.dateStart|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.dateEnd ? event.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.url }}</td>
+                <td>{{ event.price }}</td>
+                <td>{{ event.isValid ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('event_show', {'slug': event.slug}) }}">Voir</a>
+                    <a href="{{ path('event_edit', {'slug': event.slug}) }}">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">Pas d'enregistrements trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-        <a href="{{ path('event_new') }}">Créer un nouveau</a>
-    {% endif %}
+    <a href="{{ path('event_new') }}">Créer un nouveau</a>
+{% endif %}
 {% endblock %}
