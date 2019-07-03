@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Langage;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -68,7 +69,8 @@ les 18 et 19 Juillet 2019, pendant le Festival des Vieilles Charrues.");
     {
         return [
             UserFixtures::class,
-            CityFixtures::class
+            CityFixtures::class,
+            Langage::class
         ];
     }
 }

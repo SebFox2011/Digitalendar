@@ -19,7 +19,7 @@
                             <a class="p-2 text-white" href="{{ path('event_index') }}">Les événements</a>
                             <a class="p-2 text-white" href="{{ path('event_new') }}">Proposer un événement</a>
                             {%  if app.user %}
-                                <a class="p-2 text-white" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte</a>
+                                <a class="p-2 text-white" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte ( {{ app.user.getUsername }} )</a>
                                 <a href="{{ path('app_logout') }}">Déconnexion</a>
                             {% else %}
                                 <a href="{{ path('app_login') }}">Connexion</a>
@@ -29,10 +29,16 @@
                     </div>
                 </div>
             </header>
-        {% block body %}
 
+            <main role="main">
+                <div class="py-5 bg-light">
+                    <div class="container">
+                        {% block body %}
 
-        {% endblock %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </main>
         {% block footer %}
             <footer class="text-muted">
                 <div class="container">

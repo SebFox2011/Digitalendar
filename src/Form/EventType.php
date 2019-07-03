@@ -3,8 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Event;
+use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EventType extends AbstractType
@@ -13,14 +18,15 @@ class EventType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('slug')
-            ->add('picture')
-            ->add('description')
-            ->add('date_start')
-            ->add('date_end')
+            ->add('picture',FileType::class,[
+                'mapped'=>false,
+                'required'=>false
+                ])
+            ->add('description',TextareaType::class)
+            ->add('date_start',DateTimeType::class)
+            ->add('date_end',DateTimeType::class)
             ->add('url')
             ->add('price')
-            ->add('is_valid')
             ->add('langages')
             ->add('user')
             ->add('city')
