@@ -45,6 +45,7 @@ class EventRepository extends ServiceEntityRepository
     {
         $today = new \DateTime();
 
+
         $qb = $this->createQueryBuilder('e');
 
         return $qb->andWhere($qb->expr()->gte('e.date_start', ':today'))
