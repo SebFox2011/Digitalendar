@@ -36,7 +36,11 @@
                         {{ event.price }}
                     </span>
                         <p>{{ event.description }}</p>
-                        <a href="{{ path('event_add_participant', {'slug': event.slug}) }}" class="btn btn-primary btn-lg">J'y vais !</a>
+                        {% if participants %}
+                            <a href="{{ path('event_add_participant', {'slug': event.slug}) }}" class="btn btn-warning btn-lg">J'y vais plus!</a>
+                        {% else %}
+                            <a href="{{ path('event_add_participant', {'slug': event.slug}) }}" class="btn btn-primary btn-lg">J'y vais !</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
