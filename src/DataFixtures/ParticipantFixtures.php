@@ -12,14 +12,14 @@ class ParticipantFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $participant1 = new Participant();
-        $participant1-> setCreatedAt(new \DateTime('2011-01-01T15:03:01'));
+        $participant1->setCreatedAt(new \DateTime('2011-01-01T15:03:01'));
         $participant1->setEvent($this->getReference("EventFestival"));
         $participant1->setUser($this->getReference("user1"));
 
         $manager->persist($participant1);
 
         $participant2 = new Participant();
-        $participant2-> setCreatedAt(new \DateTime('2013-01-01T10:03:01'));
+        $participant2->setCreatedAt(new \DateTime('2013-01-01T10:03:01'));
         $participant2->setEvent($this->getReference("EventMeeting"));
         $participant2->setUser($this->getReference("user2"));
 

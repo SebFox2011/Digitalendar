@@ -53,8 +53,7 @@ class EventRepository extends ServiceEntityRepository
             ->orderBy('e.date_start', 'ASC')
             ->setMaxResults($limit)
             ->getQuery()
-            ->getResult()
-            ;
+            ->getResult();
     }
 
     /*

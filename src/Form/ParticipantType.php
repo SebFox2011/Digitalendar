@@ -14,8 +14,7 @@ class ParticipantType extends AbstractType
         $builder
             ->add('created_at')
             ->add('event')
-            ->add('user')
-        ;
+            ->add('user');
     }
 
     public function configureOptions(OptionsResolver $resolver)

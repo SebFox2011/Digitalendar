@@ -15,9 +15,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     private $slugger;
 
-    public function __construct(Slugger $slugger )
+    public function __construct(Slugger $slugger)
     {
-        $this->slugger=$slugger;
+        $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager)
@@ -32,7 +32,7 @@ les 18 et 19 Juillet 2019, pendant le Festival des Vieilles Charrues.");
         $EventFestival->setDateEnd(new \DateTime('2019-07-19T19:00:00'));
         $EventFestival->setUrl("https://www.west-web-festival.fr/");
         $EventFestival->setPrice(205);
-        $this->setReference("EventFestival",$EventFestival);
+        $this->setReference("EventFestival", $EventFestival);
         $EventFestival->setUser($this->getReference('user1'));
         $EventFestival->setCity($this->getReference('Carrhaix'));
 
@@ -50,7 +50,7 @@ les 18 et 19 Juillet 2019, pendant le Festival des Vieilles Charrues.");
         $EventMeeting->setDateEnd(new \DateTime('2019-12-11T19:00:00'));
         $EventMeeting->setUrl("https://www.opensourcesummit.paris/");
         $EventMeeting->setPrice(100);
-        $this->setReference("EventMeeting",$EventFestival);
+        $this->setReference("EventMeeting", $EventFestival);
         $EventMeeting->setUser($this->getReference('user2'));
         $EventMeeting->setCity($this->getReference('Paris'));
 

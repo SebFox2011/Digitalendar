@@ -18,7 +18,7 @@
                 <div class="col-md-10">
                     <div class="row">
 
-                        {% for event in events  %}
+                        {% for event in events %}
                             {% if event.getIsValid %}
                                 <div class="col-md-6">
                                     <div class="card mb-4 shadow-sm">
@@ -27,12 +27,16 @@
                                             <h3 class="card-text">{{ event.title }}</h3>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                    <a href="{{ path('event_show',{slug: event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
-                                                    {%  if app.user %}
-                                                        <a href="{{ path('event_edit', {'slug': event.slug}) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                                    <a href="{{ path('event_show',{slug: event.slug}) }}"
+                                                       class="btn btn-sm btn-outline-secondary">Voir</a>
+                                                    {% if app.user %}
+                                                        <a href="{{ path('event_edit', {'slug': event.slug}) }}"
+                                                           class="btn btn-sm btn-outline-secondary">Modifier</a>
                                                     {% endif %}
                                                 </div>
-                                                <small class="text-muted">{{ event.city }} - {{ event.dateStart | date ('d') }} | {{ event.dateEnd |date ('d-m-Y' ) }}</small>
+                                                <small class="text-muted">{{ event.city }}
+                                                    - {{ event.dateStart | date ('d') }}
+                                                    | {{ event.dateEnd |date ('d-m-Y' ) }}</small>
                                             </div>
                                         </div>
                                     </div>

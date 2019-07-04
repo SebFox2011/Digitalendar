@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Digitalendar!{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Digitalendar!{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-    </head>
-    <body>
-            <header>
-                <div class="navbar navbar-dark bg-dark shadow-sm">
-                    <div class="container d-flex justify-content-between">
-                        <a href="{{ path('default') }}" class="navbar-brand d-flex align-items-center">
-                            <strong>Digitalendar</strong>
-                        </a>
-                        <nav class="my-2 my-md-0">
-                            <a class="p-2 text-white" href="{{ path('event_index') }}">Les événements</a>
-                            <a class="p-2 text-white" href="{{ path('event_new') }}">Proposer un événement</a>
-                            {%  if app.user %}
-                                <a class="p-2 text-white" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte ( {{ app.user.getUsername }} )</a>
-                                <a href="{{ path('app_logout') }}">Déconnexion</a>
-                            {% else %}
-                                <a href="{{ path('app_login') }}">Connexion</a>
-                                <a href="{{ path('user_new') }}">S'enregistrer</a>
-                            {% endif %}
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <a href="{{ path('easyadmin') }}">Portail d'admin</a>
-                            {% endif %}
-                        </nav>
-                    </div>
-                </div>
-            </header>
+</head>
+<body>
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="{{ path('default') }}" class="navbar-brand d-flex align-items-center">
+                <strong>Digitalendar</strong>
+            </a>
+            <nav class="my-2 my-md-0">
+                <a class="p-2 text-white" href="{{ path('event_index') }}">Les événements</a>
+                <a class="p-2 text-white" href="{{ path('event_new') }}">Proposer un événement</a>
+                {% if app.user %}
+                    <a class="p-2 text-white" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte
+                        ( {{ app.user.getUsername }} )</a>
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                    <a href="{{ path('user_new') }}">S'enregistrer</a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('easyadmin') }}">Portail d'admin</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</header>
 
-            <main role="main">
-                <div class="py-5 bg-light">
-                    <div class="container">
-                        {% block body %}
+<main role="main">
+    <div class="py-5 bg-light">
+        <div class="container">
+            {% block body %}
 
-                        {% endblock %}
-                    </div>
-                </div>
-            </main>
-        {% block footer %}
-            <footer class="text-muted">
-                <div class="container">
-                    <p class="float-right">
-                        <a href="#">Haut de page</a>
-                    </p>
-                    <p>&copy; Digitalendar 2019</p>
-                </div>
-            </footer>
-        {% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </body>
+            {% endblock %}
+        </div>
+    </div>
+</main>
+{% block footer %}
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Haut de page</a>
+            </p>
+            <p>&copy; Digitalendar 2019</p>
+        </div>
+    </footer>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>

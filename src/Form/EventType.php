@@ -19,19 +19,18 @@ class EventType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('picture',FileType::class,[
-                'mapped'=>false,
-                'required'=>false
-                ])
-            ->add('description',TextareaType::class)
-            ->add('date_start',DateTimeType::class)
-            ->add('date_end',DateTimeType::class)
+            ->add('picture', FileType::class, [
+                'mapped' => false,
+                'required' => false
+            ])
+            ->add('description', TextareaType::class)
+            ->add('date_start', DateTimeType::class)
+            ->add('date_end', DateTimeType::class)
             ->add('url')
             ->add('price')
             ->add('langages')
             ->add('user')
-            ->add('city')
-        ;
+            ->add('city');
     }
 
     public function configureOptions(OptionsResolver $resolver)

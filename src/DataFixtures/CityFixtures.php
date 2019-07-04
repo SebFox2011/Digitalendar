@@ -12,19 +12,19 @@ class CityFixtures extends Fixture
     {
         $cityRennes = new City();
         $cityRennes->setName("Carrhaix");
-        $this->setReference("Carrhaix",$cityRennes);
+        $this->setReference("Carrhaix", $cityRennes);
 
         $manager->persist($cityRennes);
 
         $cityNantes = new City();
         $cityNantes->setName("Nantes");
-        $this->setReference("Nantes",$cityNantes);
+        $this->setReference("Nantes", $cityNantes);
 
         $manager->persist($cityNantes);
 
         $cityParis = new City();
         $cityParis->setName("Paris");
-        $this->setReference("Paris",$cityParis);
+        $this->setReference("Paris", $cityParis);
 
         $manager->persist($cityParis);
 

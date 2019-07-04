@@ -10,17 +10,17 @@ class LangageFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $langageFrancais= new Langage();
-        $langageFrancais ->setName("Français");
-        $manager -> persist($langageFrancais);
+        $langageFrancais = new Langage();
+        $langageFrancais->setName("Français");
+        $manager->persist($langageFrancais);
 
-        $langageAnglais= new Langage();
-        $langageAnglais ->setName("Anglais");
-        $manager -> persist($langageAnglais);
+        $langageAnglais = new Langage();
+        $langageAnglais->setName("Anglais");
+        $manager->persist($langageAnglais);
 
-        $langageAllemand= new Langage();
-        $langageAllemand ->setName("Allemand");
-        $manager -> persist($langageAllemand);
+        $langageAllemand = new Langage();
+        $langageAllemand->setName("Allemand");
+        $manager->persist($langageAllemand);
 
 
         $manager->flush();

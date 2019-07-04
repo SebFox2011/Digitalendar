@@ -17,7 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-
 /**
  * @Route("/event")
  */
@@ -28,8 +27,8 @@ class EventController extends AbstractController
      */
     public function index(EventRepository $eventRepository): Response
     {
-        $events=$this->getDoctrine()->getRepository(Event::class)->findBy(
-            [] ,['date_end'=>'desc']);
+        $events = $this->getDoctrine()->getRepository(Event::class)->findBy(
+            [], ['date_end' => 'desc']);
         //$events=$this->findAfterNow(6);
         return $this->render('event/index.html.twig', [
             'events' => $events
@@ -51,41 +50,40 @@ class EventController extends AbstractController
             /**
              * @var UploadedFile $pictureFile
              */
-             $pictureFile = $form["picture"]->getData();
-             if ($pictureFile)
-             {
-                 $filename=uniqid().".".$pictureFile->guessExtension();
-                 try{
-                     $pictureFile->move($this->getParameter("upload_dir")
-                         ,$filename);
-                     $event->setPicture($filename);
-                 } catch (FileException $e){
-                 }
-             }
+            $pictureFile = $form["picture"]->getData();
+            if ($pictureFile) {
+                $filename = uniqid() . "." . $pictureFile->guessExtension();
+                try {
+                    $pictureFile->move($this->getParameter("upload_dir")
+                        , $filename);
+                    $event->setPicture($filename);
+                } catch (FileException $e) {
+                }
+            }
 
-             $event->setSlug($slugger->slugify($event->getTitle()));
-             $event->setUser($this->getUser());
-             $event->setIsValid(False);
-             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->persist($event);
-             $entityManager->flush();
+            $event->setSlug($slugger->slugify($event->getTitle()));
+            $event->setUser($this->getUser());
+            $event->setIsValid(False);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
 
-             return $this->redirectToRoute('event_index');
-         }
+            return $this->redirectToRoute('event_index');
+        }
 
-         return $this->render('event/new.html.twig', [
-             'event' => $event,
-             'form' => $form->createView(),
-         ]);
-     }
+        return $this->render('event/new.html.twig', [
+            'event' => $event,
+            'form' => $form->createView(),
+        ]);
+    }
 
-     /**
-      * @Route("/{slug}", name="event_show", methods={"GET"})
-      */
+    /**
+     * @Route("/{slug}", name="event_show", methods={"GET"})
+     */
     public function show(Event $event): Response
     {
         $em = $this->getDoctrine()->getManager();
-        $participants=$em->getRepository(Participant::class)->findOneBy([
+        $participants = $em->getRepository(Participant::class)->findOneBy([
             "user" => $this->getUser(), "event" => $event]);
         return $this->render('event/show.html.twig', [
             'event' => $event,
@@ -122,7 +120,7 @@ class EventController extends AbstractController
      */
     public function delete(Request $request, Event $event): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($event);
             $entityManager->flush();
