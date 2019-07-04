@@ -28,7 +28,7 @@ class EventController extends AbstractController
     {
         $events=$this->getDoctrine()->getRepository(Event::class)->findBy(
             [] ,['date_end'=>'desc']);
-
+        //$events=$this->findAfterNow(6);
         return $this->render('event/index.html.twig', [
             'events' => $events
         ]);

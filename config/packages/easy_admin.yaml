@@ -13,7 +13,6 @@ easy_admin:
                 fields:
                     - {property: 'title', type: 'text'}
                     - {property: 'isValid', type: 'toggle' }
-                    - {property: 'slug', type: 'string'}
                     - {property: 'picture', type: 'string'}
                     - {property: 'description', type: 'text'}
                     - {property: 'date_start', type: 'datetime'}
