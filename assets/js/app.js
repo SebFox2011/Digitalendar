@@ -12,7 +12,20 @@ require('../css/app.scss');
 const $ = require('jquery');
 require('bootstrap');
 require('select2');
+// require('tinymce/tinymce.min');
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+$(document).ready(function() {
+
+    /*
+    tinymce.init({
+        selector: 'textarea'
+    });
+    */
+
+    $('select').select2();
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+});
 
 
