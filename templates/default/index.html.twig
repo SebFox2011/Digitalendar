@@ -25,7 +25,7 @@
                             <h3 class="card-text">{{ event.title }}</h3>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="{{ path('event_show',{slug: event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+                                    <a href="{{ path('event_show',{'slug': event.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
                                     {%  if app.user %}
                                         <a href="{{ path('event_edit', {'slug': event.slug}) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
                                     {% endif %}

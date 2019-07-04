@@ -2,8 +2,32 @@ easy_admin:
     site_name: 'Digitalendar Admin'
     entities:
 #        # List the entity class name you want to manage
-        - App\Entity\Event
-        - App\Entity\User
-        - App\Entity\City
-        - App\Entity\Participant
-        - App\Entity\Langage
+        #- App\Entity\Event
+        #- App\Entity\User
+        #- App\Entity\City
+        #- App\Entity\Participant
+        #- App\Entity\Langage
+        Event:
+            class: App\Entity\Event
+            list:
+                fields:
+                    - {property: 'title', type: 'text'}
+                    - {property: 'isValid', type: 'toggle' }
+                    - {property: 'slug', type: 'string'}
+                    - {property: 'picture', type: 'string'}
+                    - {property: 'description', type: 'text'}
+                    - {property: 'date_start', type: 'datetime'}
+                    - {property: 'date_end', type: 'datetime'}
+                    - {property: 'url', type: 'string'}
+                    - {property: 'price', type: 'decimal'}
+                    - {property: 'city', type: 'string'}
+                    - {property: 'user', type: 'string'}
+
+        User:
+            class: App\Entity\User
+        City:
+            class: App\Entity\City
+        Participant:
+            class: App\Entity\Participant
+        Langage:
+            class: App\Entity\Langage
