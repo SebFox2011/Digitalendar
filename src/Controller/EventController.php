@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\DataFixtures\ParticipantFixtures;
 use App\Entity\Event;
 use App\Entity\Participant;
 use App\Form\EventType;
@@ -25,11 +24,11 @@ class EventController extends AbstractController
     /**
      * @Route("/", name="event_index", methods={"GET"})
      */
-    public function index(EventRepository $eventRepository): Response
+    public function index(): Response
     {
         $events = $this->getDoctrine()->getRepository(Event::class)->findBy(
             [], ['date_end' => 'desc']);
-        //$events=$this->findAfterNow(6);
+
         return $this->render('event/index.html.twig', [
             'events' => $events
         ]);
