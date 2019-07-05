@@ -15,17 +15,17 @@
                     </div>
                     <div class="col-md-8">
                         <h1>{{ event.getTitle }}</h1>
-                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
+                        <span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
                               title="Ville">
                         <i class="fa fa-map-pin"></i>
                         {{ event.city }}
                     </span>
-                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
+                        <span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
                               title="Dates">
                         <i class="fa fa-calendar"></i>
                         {{ event.dateStart | date ('d') }}-{{ event.dateEnd |date ('d/F/Y' ) }}
                     </span>
-                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
+                        <span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top"
                               title="Participants">
                         <i class="fa fa-users"></i>
                         {{ event.participants.count }}
@@ -35,7 +35,7 @@
                             <i class="fa fa-globe"></i>
                             Site internet
                         </a>
-                        <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
+                        <span class="badge badge-pill badge-warning" data-toggle="tooltip" data-placement="top"
                               title="Prix">
                         <i class="fa fa-euro"></i>
                         {{ event.price }}

@@ -19,15 +19,15 @@
                 <a class="btn btn-primary" href="{{ path('event_index') }}">Les événements</a>
                 <a class="btn btn-primary" href="{{ path('event_new') }}">Proposer un événement</a>
                 {% if app.user %}
-                    <a class="p-2 text-white" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte
+                    <a class="btn btn-warning" href="{{ path('user_show',{id: app.user.getId}) }}">Mon compte
                         ( {{ app.user.getUsername }} )</a>
-                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a class="btn btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
                 {% else %}
                     <a class="btn btn-warning" href="{{ path('app_login') }}">Connexion</a>
                     <a class="btn btn-danger" href="{{ path('user_new') }}">S'enregistrer</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('easyadmin') }}">Portail d'admin</a>
+                    <a class="btn btn-warning" href="{{ path('easyadmin') }}">Portail d'admin</a>
                 {% endif %}
             </nav>
         </div>

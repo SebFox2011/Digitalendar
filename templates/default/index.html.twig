@@ -28,7 +28,7 @@
                                         <div class="btn-group">
                                             <a href="{{ path('event_show',{'slug': event.slug}) }}"
                                                class="btn btn-sm btn-outline-secondary">Voir</a>
-                                            {% if app.user %}
+                                            {% if app.user == event.user %}
                                                 <a href="{{ path('event_edit', {'slug': event.slug}) }}"
                                                    class="btn btn-sm btn-outline-secondary">Modifier</a>
                                             {% endif %}
