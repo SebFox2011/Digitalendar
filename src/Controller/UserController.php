@@ -19,7 +19,7 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/", name="user_index", methods={"GET"})
-     * @IsGranted("ROLE_ADMIN")
+     *
      */
     public function index(UserRepository $userRepository): Response
     {
@@ -45,7 +45,10 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->render('user/show.html.twig', [
+                'user' => $user,
+                'form' => $form->createView(),
+            ]);
         }
 
         return $this->render('user/new.html.twig', [
