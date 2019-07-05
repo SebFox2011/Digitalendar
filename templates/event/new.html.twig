@@ -3,7 +3,12 @@
 {% block title %}Proposer un événement{% endblock %}
 
 {% block body %}
-
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hello {{ app.user }}</strong> Attention une fois l'événement soumis, l'administrateur doit le valider
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <h1>Proposer un événement</h1>
     {{ include('event/_form.html.twig') }}
 

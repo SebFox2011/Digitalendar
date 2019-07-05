@@ -23,7 +23,7 @@
                         <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
                               title="Dates">
                         <i class="fa fa-calendar"></i>
-                        {{ event.dateStart | date ('d') }}-{{ event.dateEnd |date ('d/m/Y' ) }}
+                        {{ event.dateStart | date ('d') }}-{{ event.dateEnd |date ('d/F/Y' ) }}
                     </span>
                         <span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top"
                               title="Participants">
@@ -45,8 +45,11 @@
                             <a href="{{ path('event_add_participant', {'slug': event.slug}) }}"
                                class="btn btn-warning btn-lg">J'y vais plus!</a>
                         {% else %}
-                            <a href="{{ path('event_add_participant', {'slug': event.slug}) }}"
-                               class="btn btn-primary btn-lg">J'y vais !</a>
+                            {% if app.user  %}
+                                <a href="{{ path('event_add_participant', {'slug': event.slug}) }}"
+                                   class="btn btn-primary btn-lg">J'y vais !</a>
+                            {% endif %}
+
                         {% endif %}
                     </div>
                 </div>
