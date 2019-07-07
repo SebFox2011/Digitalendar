@@ -40,6 +40,14 @@
                         <i class="fa fa-euro"></i>
                         {{ event.price }}
                     </span>
+                        {% for langage in event.langages %}
+                            <span class="badge badge-pill badge-primary" data-toggle="tooltip" data-placement="top"
+                                  title="Language">
+                            <i class="fa fa-globe"></i>
+                            {{ langage.name }}
+                    </span>
+
+                        {% endfor %}
                         <p>{{ event.description }}</p>
                         {% if participants %}
                             <a href="{{ path('event_add_participant', {'slug': event.slug}) }}"
